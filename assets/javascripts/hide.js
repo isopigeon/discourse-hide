@@ -4,9 +4,9 @@
     Discourse.Dialect.inlineBetween({
         start: "[nsfw]",
         stop:  "[/nsfw]",
-        rawContents: true,
+        rawContents: false,
         emitter: function(contents) {
-            return ['details', ['summary', ['b', 'NSFW']]].concat(this.processInline(contents));
+            return ['details', ['summary', ['b', 'NSFW']]].concat(contents);
         }
     });
 
@@ -15,9 +15,8 @@
         stop:  "[/hide]",
         rawContents: true,
         emitter: function(contents) {
-            var matches = contents.match(/(.+)](.*)/);
-            if (matches)
-                return ['details', ['summary', ['b', matches[1]]]].concat(this.processInline(matches[2]));
+            var matches = contents.match(/(.+)]([\s\S]*)/);
+            if (matches) return ['details', ['summary', ['b', matches[1]]]].concat(this.processInline(matches[2]));
         }
     });
 
