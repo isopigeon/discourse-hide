@@ -6,7 +6,7 @@
         stop:  "[/hide]",
         rawContents: false,
         emitter: function(contents) {
-            return ['details', ['summary', ['b', 'NSFW']]].concat(contents);
+            return ['details', ['summary', ['b', 'Show Section']]].concat(contents);
         }
     });
 
