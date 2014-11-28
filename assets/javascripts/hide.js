@@ -11,7 +11,7 @@
     });
 
     Discourse.Dialect.inlineBetween({
-        start: "[hide=",
+        start: "[hide=]",
         stop:  "[/hide]",
         rawContents: true,
         emitter: function(contents) {
